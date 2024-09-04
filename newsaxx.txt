@@ -1,0 +1,62 @@
+local whitelist = {
+    "prime_papaya5",
+    "midas123456z",
+    "hellosmile945",
+    "Purexoj",
+    "Jonathan1037q",
+    "Dontaskidkman",
+    "username7",
+    "username8",
+    "username9",
+    "username10",
+    "username11",
+    "username12",
+    "username13",
+    "username14",
+    "username15",
+    "username16",
+    "username17",
+    "username18",
+    "username19",
+    "username20",
+    "username21",
+    "username22",
+    "username23",
+    "username24",
+    "username25",
+    "username26",
+    "username27",
+    "username28",
+    "username29",
+    "username30",
+}
+
+-- Get the LocalPlayer
+local player = game.Players.LocalPlayer
+
+-- Check if the player's name is in the whitelist
+local function isPlayerWhitelisted(name)
+    for _, whitelistedName in ipairs(whitelist) do
+        if name == whitelistedName then
+            return true
+        end
+    end
+    return false
+end
+
+-- Execute a specific script from a URL if the player is whitelisted
+local function executeSpecificScript()
+    local scriptUrl = "https://raw.githubusercontent.com/Saxxgooder/Saxxgooderwhitelistimlazy/main/OhiogyatandRizzlerScript%25By%25SaxxGooder%25FromDiscord%20(1)%20(1)%20(1).txt"
+    local success, result = pcall(function()
+        return loadstring(game:HttpGet(scriptUrl, true))()
+    end)
+
+    if not success then
+        warn("Failed to execute script: " .. result)
+    end
+end
+
+-- Main logic
+if isPlayerWhitelisted(player.Name) then
+    executeSpecificScript()
+end
